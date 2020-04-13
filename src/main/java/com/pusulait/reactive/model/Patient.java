@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -16,9 +15,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Patient {
 
     @Id
-    @Indexed
     private String id;
 
+  //  @Indexed
     private String forename;
     private String surname;
 }
