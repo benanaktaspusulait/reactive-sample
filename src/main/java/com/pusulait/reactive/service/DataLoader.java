@@ -1,6 +1,7 @@
 package com.pusulait.reactive.service;
 
 import com.github.javafaker.Faker;
+import com.pusulait.reactive.model.IllnessType;
 import com.pusulait.reactive.model.Patient;
 import com.pusulait.reactive.repository.PatientRepository;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,6 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) {
 
         Faker faker = new Faker();
-        patientRepository.save(new Patient(faker.name().firstName(), faker.name().lastName())).subscribe();
+        patientRepository.save(new Patient(faker.name().firstName(), faker.name().lastName(), 45, IllnessType.CORONA)).subscribe();
     }
 }

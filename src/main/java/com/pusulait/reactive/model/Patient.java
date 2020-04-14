@@ -19,6 +19,13 @@ public class Patient extends BaseEntity {
 
     @Field
     private String surname;
+
+    @Field
+    private Integer age;
+
+    @Field
+    private IllnessType illnessType;
+
 }
 
 
