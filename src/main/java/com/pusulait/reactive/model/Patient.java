@@ -7,7 +7,7 @@ import lombok.ToString;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document
+@Document(collection = "patient")
 @Data
 @ToString
 @AllArgsConstructor
@@ -20,3 +20,5 @@ public class Patient extends BaseEntity {
     @Field
     private String surname;
 }
+
+

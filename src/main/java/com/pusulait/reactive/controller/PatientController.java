@@ -2,6 +2,7 @@ package com.pusulait.reactive.controller;
 
 import com.pusulait.reactive.model.Patient;
 import com.pusulait.reactive.repository.PatientRepository;
+import com.pusulait.reactive.service.PatientService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import reactor.core.publisher.Mono;
 public class PatientController {
 
     private final PatientRepository patientRepository;
+    private final PatientService patientService;
 
     @GetMapping("/{id}")
     public Mono<Patient> getPatient(@PathVariable String id) {
@@ -29,7 +31,10 @@ public class PatientController {
 
     @GetMapping
     public Flux<Patient> getPatients() {
-        return patientRepository.findAll();
+        return patientService.findAll();
     }
+
+
+
 
 }
