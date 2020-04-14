@@ -12,4 +12,7 @@ public interface PatientRepository extends ReactiveCrudRepository<Patient, Strin
     Flux<Patient> findAllByForename(String forename);
 
     Mono<Patient> findFirstByForename(Mono<String> forename);
+
+    Mono<Patient> findByIdAndDeleteIsFalse(String id);
+
 }

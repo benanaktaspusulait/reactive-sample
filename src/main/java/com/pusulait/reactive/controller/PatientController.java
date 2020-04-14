@@ -4,10 +4,8 @@ import com.pusulait.reactive.model.Patient;
 import com.pusulait.reactive.repository.PatientRepository;
 import com.pusulait.reactive.service.PatientService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -34,6 +32,11 @@ public class PatientController {
         return patientService.findAll();
     }
 
+    @PostMapping
+    @PatchMapping
+    public ResponseEntity<Mono<Patient>> savePatient(@RequestBody Patient patient) {
+        return ResponseEntity.ok(patientService.save(patient));
+    }
 
 
 

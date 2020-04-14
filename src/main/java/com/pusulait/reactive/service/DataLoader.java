@@ -15,12 +15,13 @@ public class DataLoader implements ApplicationRunner {
 
     private final PatientRepository patientRepository;
 
-
+    /**
+     * persist a sample data
+     * @param args
+     */
     public void run(ApplicationArguments args) {
 
         Faker faker = new Faker();
-        Mono<Patient> patientMono = patientRepository.
-                                save(new Patient(faker.name().firstName(), faker.name().lastName()));
-        patientMono.subscribe();
+        patientRepository.save(new Patient(faker.name().firstName(), faker.name().lastName())).subscribe();
     }
 }
