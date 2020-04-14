@@ -1,6 +1,5 @@
 package com.pusulait.reactive.repository;
 
-
 import com.pusulait.reactive.ReactiveDemoApplication;
 import com.pusulait.reactive.model.Patient;
 import org.junit.Test;
@@ -24,7 +23,7 @@ public class PatientCrudRepositoryManualTest {
 
     @Test
     public void givenValue_whenFindAllByValue_thenFindAccount() {
-        repository.save(new Patient(null, "Bill", "Gates")).block();
+        repository.save(new Patient( "Bill", "Gates")).block();
         Flux<Patient> accountFlux = repository.findAllByForename("Bill");
 
         StepVerifier.create(accountFlux)
@@ -39,7 +38,7 @@ public class PatientCrudRepositoryManualTest {
 
     @Test
     public void givenOwner_whenFindFirstByOwner_thenFindAccount() {
-        repository.save(new Patient(null, "Bill", "Gates")).block();
+        repository.save(new Patient( "Bill", "Gates")).block();
         Mono<Patient> accountMono = repository.findFirstByForename(Mono.just("Bill"));
 
         StepVerifier.create(accountMono)
@@ -57,7 +56,7 @@ public class PatientCrudRepositoryManualTest {
 
     @Test
     public void givenAccount_whenSave_thenSaveAccount() {
-        Mono<Patient> accountMono = repository.save(new Patient(null, "Bill", "Gates"));
+        Mono<Patient> accountMono = repository.save(new Patient("Bill", "Gates"));
 
         StepVerifier
                 .create(accountMono)

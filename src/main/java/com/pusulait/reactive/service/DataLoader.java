@@ -17,7 +17,7 @@ public class DataLoader  implements ApplicationRunner {
     public void run(ApplicationArguments args) {
 
         Faker faker = new Faker();
-        patientRepository.save(new Patient(null, faker.name().firstName(), faker.name().lastName()));
+        patientRepository.save(new Patient(faker.name().firstName(), faker.name().lastName()));
     }
 
 }
